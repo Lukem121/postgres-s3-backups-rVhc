@@ -44,10 +44,11 @@ const dumpToFile = async (path: string) => {
         return;
       }
 
-      if (stderr != "") {
-        reject({ stderr: stderr.trimEnd() });
-        return;
-      }
+      // Commented out based on https://github.com/railwayapp-templates/postgres-s3-backups/issues/12
+      // if (stderr != "") {
+      //   reject({ stderr: stderr.trimEnd() });
+      //   return;
+      // }
 
       console.log("Backup size:", filesize(statSync(path).size));
 
